@@ -1,0 +1,13 @@
+{
+	"name": "derelict-cudnn",
+	"authors": [
+		"Henry Gouk"
+	],
+	"dependencies": {
+		"derelict-cuda": "~>3.1.0",
+		"derelict-util": "~>3.0.0-beta.1"
+	},
+	"description": "Dynamic bindings to cuDNN for the D programming language.",
+	"copyright": "Copyright © 2017, Henry Gouk",
+	"license": "Boost"
+}
