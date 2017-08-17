@@ -30,7 +30,7 @@ private
         ["cudnnGetStream", "cudnnHandle_t", "cudaStream_t *"],
 
 
-        ["cudnnCreateTensorDescriptor", "cudnnTensorDescriptor_t"],
+        ["cudnnCreateTensorDescriptor", "cudnnTensorDescriptor_t *"],
         ["cudnnSetTensor4dDescriptor", "cudnnTensorDescriptor_t", "cudnnTensorFormat_t", "cudnnDataType_t", "int",
             "int", "int", "int"],
         ["cudnnSetTensor4dDescriptorEx", "cudnnTensorDescriptor_t", "cudnnDataType_t", "int", "int", "int", "int",
@@ -68,7 +68,7 @@ private
         ["cudnnGetFilterNdDescriptor", "const cudnnFilterDescriptor_t", "int", "cudnnDataType_t *",
             "cudnnTensorFormat_t *", "int *", "int[]"],
         ["cudnnDestroyFilterDescriptor", "cudnnFilterDescriptor_t"],
-        ["cudnnCreateConvolutionDescriptor", "cudnnConvolutionDescriptor_t"],
+        ["cudnnCreateConvolutionDescriptor", "cudnnConvolutionDescriptor_t *"],
         ["cudnnSetConvolution2dDescriptor", "cudnnConvolutionDescriptor_t", "int", "int", "int", "int", "int", "int",
             "cudnnConvolutionMode_t"],
         ["cudnnSetConvolution2dDescriptor_v5", "cudnnConvolutionDescriptor_t", "int", "int", "int", "int", "int",
