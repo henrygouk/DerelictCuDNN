@@ -61,8 +61,10 @@ private
         
 
         ["cudnnCreateFilterDescriptor", "cudnnFilterDescriptor_t *"],
-        ["cudnnSetFilter4dDescriptor", "cudnnDataType_t", "cudnnTensorFormat_t", "int", "int", "int", "int"],
-        ["cudnnGetFilter4dDescriptor", "cudnnDataType_t", "cudnnTensorFormat_t *", "int *", "int *", "int *", "int *"],
+        ["cudnnSetFilter4dDescriptor", "cudnnFilterDescriptor_t", "cudnnDataType_t", "cudnnTensorFormat_t", "int",
+			"int", "int", "int"],
+        ["cudnnGetFilter4dDescriptor", "cudnnDataType_t *", "cudnnTensorFormat_t *", "int *", "int *", "int *",
+			"int *"],
         ["cudnnSetFilterNdDescriptor", "cudnnFilterDescriptor_t", "cudnnDataType_t", "cudnnTensorFormat_t", "int",
             "const int[]"],
         ["cudnnGetFilterNdDescriptor", "const cudnnFilterDescriptor_t", "int", "cudnnDataType_t *",
