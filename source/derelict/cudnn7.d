@@ -1,4 +1,4 @@
-module derelict.cudnn5;
+module derelict.cudnn7;
 
 /**
     Translation of cudnn.h
@@ -14,7 +14,7 @@ private
     static if(Derelict_OS_Linux)
     {
         version(X86_64)
-            enum libNames = "libcudnn.so.5";
+            enum libNames = "libcudnn.so.6";
         else
             static assert(0, "Need to implement cuDNN libNames for this arch.");
     }
@@ -71,13 +71,9 @@ private
             "cudnnTensorFormat_t *", "int *", "int[]"],
         ["cudnnDestroyFilterDescriptor", "cudnnFilterDescriptor_t"],
         ["cudnnCreateConvolutionDescriptor", "cudnnConvolutionDescriptor_t *"],
-        ["cudnnSetConvolution2dDescriptor", "cudnnConvolutionDescriptor_t", "int", "int", "int", "int", "int", "int",
-            "cudnnConvolutionMode_t"],
-        ["cudnnSetConvolution2dDescriptor_v5", "cudnnConvolutionDescriptor_t", "int", "int", "int", "int", "int",
+        ["cudnnSetConvolution2dDescriptor", "cudnnConvolutionDescriptor_t", "int", "int", "int", "int", "int",
             "int", "cudnnConvolutionMode_t", "cudnnDataType_t"],
-        ["cudnnGetConvolution2dDescriptor", "const cudnnConvolutionDescriptor_t", "int *", "int *", "int *", "int *",
-            "int *", "int *", "cudnnConvolutionMode_t *"],
-        ["cudnnGetConvolution2dDescriptor_v5", "const cudnnConvolutionDescriptor_t", "int *", "int *", "int *",
+        ["cudnnGetConvolution2dDescriptor", "const cudnnConvolutionDescriptor_t", "int *", "int *", "int *",
             "int *", "int *", "int *", "cudnnConvolutionMode_t *", "cudnnDataType_t *"],
         ["cudnnGetConvolution2dForwardOutputDim", "const cudnnConvolutionDescriptor_t",
             "const cudnnTensorDescriptor_t", "const cudnnFilterDescriptor_t", "int", "int", "int", "int"],
@@ -296,7 +292,14 @@ private
         ["cudnnRNNBackwardWeights", "cudnnHandle_t", "const cudnnRNNDescriptor_t", "const int",
             "const cudnnTensorDescriptor_t *", "const void *", "const cudnnTensorDescriptor_t", "const void *",
             "const cudnnTensorDescriptor_t *", "const void *", "const void *", "size_t",
-            "const cudnnFilterDescriptor_t", "void *", "const void *", "size_t"]
+            "const cudnnFilterDescriptor_t", "void *", "const void *", "size_t"],
+
+        //New in cuDNN v6
+        ["cudnnConvolutionBiasActivationForward", "cudnnHandle_t", "const void *", "const cudnnTensorDescriptor_t",
+            "const void *", "const cudnnFilterDescriptor_t", "const void *", "const cudnnConvolutionDescriptor_t",
+            "cudnnConvolutionFwdAlgo_t", "void *", "size_t", "const void *", "const cudnnTensorDescriptor_t",
+            "const void *", "const cudnnTensorDescriptor_t", "const void *", "const cudnnActivationDescriptor_t",
+            "const cudnnTensorDescriptor_t", "void *"]
     ];
 
     string generateFunctionAliases()
@@ -606,7 +609,7 @@ __gshared
     mixin(generateFunctionPointers());
 }
 
-class DerelictCuDNNLoader : SharedLibLoader
+class DerelictCuDNN6Loader : SharedLibLoader
 {
     public
     {
@@ -627,16 +630,16 @@ class DerelictCuDNNLoader : SharedLibLoader
     }
 }
 
-__gshared DerelictCuDNN5Loader DerelictCuDNN5;
+__gshared DerelictCuDNN7Loader DerelictCuDNN7;
 
 shared static this()
 {
-    DerelictCuDNN5 = new DerelictCuDNN5Loader();
+    DerelictCuDNN7 = new DerelictCuDNN7Loader();
 }
 
 unittest
 {
-    DerelictCuDNN5.load();
+    DerelictCuDNN7.load();
 
     import std.conv : to;
     import std.stdio : writeln;
