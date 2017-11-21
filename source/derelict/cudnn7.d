@@ -14,7 +14,7 @@ private
     static if(Derelict_OS_Linux)
     {
         version(X86_64)
-            enum libNames = "libcudnn.so.6";
+            enum libNames = "libcudnn.so.7";
         else
             static assert(0, "Need to implement cuDNN libNames for this arch.");
     }
