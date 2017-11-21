@@ -1,4 +1,4 @@
-module derelict.cudnn;
+module derelict.cudnn5;
 
 /**
     Translation of cudnn.h
@@ -14,7 +14,7 @@ private
     static if(Derelict_OS_Linux)
     {
         version(X86_64)
-            enum libNames = "libcudnn.so.5,libcudnn.so";
+            enum libNames = "libcudnn.so.5";
         else
             static assert(0, "Need to implement cuDNN libNames for this arch.");
     }
