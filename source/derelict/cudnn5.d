@@ -606,7 +606,7 @@ __gshared
     mixin(generateFunctionPointers());
 }
 
-class DerelictCuDNNLoader : SharedLibLoader
+class DerelictCuDNN5Loader : SharedLibLoader
 {
     public
     {

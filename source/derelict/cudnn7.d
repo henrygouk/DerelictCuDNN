@@ -609,7 +609,7 @@ __gshared
     mixin(generateFunctionPointers());
 }
 
-class DerelictCuDNN6Loader : SharedLibLoader
+class DerelictCuDNN7Loader : SharedLibLoader
 {
     public
     {
