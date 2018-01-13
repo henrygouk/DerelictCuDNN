@@ -464,6 +464,7 @@ struct cudnnConvolutionFwdAlgoPerf_t
     cudnnStatus_t               status;
     float                       time;
     size_t                      memory;
+    int[5] reserved;
 }
 
 alias cudnnConvolutionBwdFilterPreference_t = int;
@@ -491,6 +492,7 @@ struct cudnnConvolutionBwdFilterAlgoPerf_t
     cudnnStatus_t status;
     float time;
     size_t memory;
+    int[5] reserved;
 }
 
 alias cudnnConvolutionBwdDataPreference_t = int;
@@ -518,6 +520,7 @@ struct cudnnConvolutionBwdDataAlgoPerf_t
     cudnnStatus_t                   status;
     float                           time;
     size_t                          memory;
+    int[5] reserved;
 }
 
 alias cudnnSoftmaxAlgorithm_t = int;
