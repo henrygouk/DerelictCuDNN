@@ -25,6 +25,13 @@ private
         else
             static assert(0, "There are no cuDNN libNames for this arch and operating system.");
     }
+    else static if(Derelict_OS_Mac)
+    {
+        version(X86_64)
+            enum libNames = "libcudnn.5.dylib,libcudnn.dylib";
+        else
+            static assert(0, "There are no cuDNN libNames for this arch and operating system.");
+    }
     else
     {
         static assert(0, "Need to implement cuDNN libNames for this operating system.");
