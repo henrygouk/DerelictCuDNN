@@ -656,10 +656,17 @@ shared static this()
 
 unittest
 {
-    DerelictCuDNN7.load();
-
     import std.conv : to;
     import std.stdio : writeln;
 
-    writeln(cudnnGetErrorString(CUDNN_STATUS_SUCCESS).to!string);
+    try
+    {
+        DerelictCuDNN7.load();
+
+        writeln("Successfully loaded cuDNN v5");
+    }
+    catch(Exception e)
+    {
+        writeln("Could not load cuDNN v5");
+    }
 }
